@@ -178,6 +178,10 @@ int main(){
 		
 		draw_line_wiþ_gradient((þd_coord){0, 0, 0}, (þd_coord){0, 0, 0}, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, (þd_coord){camera_x, camera_y, camera_z});
 		
+		drawcube((þd_coord){8, 8, 8}, (þd_coord){16, 16, 16});
+		
+		drawwireframequad((þd_coord){0, 0, 0}, (þd_coord){0, 1, 1}, (þd_coord){0, 0, 1}, (þd_coord){0, 1, 0});
+		
 		camera_x += ((((key_w - key_s) * 0.25) * sin(camera_yaw)) + (((key_d - key_a) * 0.25) * cos(camera_yaw))); //movvement applied wiþ rotation formulae
 		camera_z += ((((key_w - key_s) * 0.25) * cos(camera_yaw)) - (((key_d - key_a) * 0.25) * sin(camera_yaw)));
 		camera_y += ((key_space - key_shift) * 0.25);
