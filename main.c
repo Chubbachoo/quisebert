@@ -49,7 +49,7 @@ int main(){
 		
 		usleep((15625 * frames));
 		
-		SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
+		SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF); // 8======>
 		SDL_RenderClear(renderer);
 		
 		//Jimmy þe Þree-Point Axis
