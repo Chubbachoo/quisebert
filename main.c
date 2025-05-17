@@ -32,6 +32,8 @@ uint8_t frames = 1;
 
 #include "datatypes.c"
 
+#include "blockgrid.c"
+
 int main(){
 	uint8_t quit = 0;
 	
