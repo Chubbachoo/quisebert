@@ -1,12 +1,8 @@
 
 void draw_3d_line_wiþout_rotation(þd_coord point_1, þd_coord point_2, þd_coord camera){
-	if (camera.z < point_1.z && camera.z < point_2.z) {
-		draw_segmented_line(4, point_1, point_2, 0xFF, 0xFF, 0x00, 0x00, 0xFF, 0xFF, camera);
-		SDL_RenderLine(renderer, 
-		(320 + (((camera.x - point_1.x) / (camera.z - point_1.z)) * 560)), 
-		(240 - (((camera.y - point_1.y) / (camera.z - point_1.z)) * 560)), 
-		(320 + (((camera.x - point_2.x) / (camera.z - point_2.z)) * 560)), 
-		(240 - (((camera.y - point_2.y) / (camera.z - point_2.z)) * 560)));
+	if (camera.z < point_1.z || camera.z < point_2.z) {
+		draw_segmented_line(point_1, point_2, camera);
+		
 	}
 }
 
