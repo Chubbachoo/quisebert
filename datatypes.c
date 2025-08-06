@@ -1,4 +1,15 @@
 
+typedef struct td_coord {
+	double x;
+	double y;
+} td_coord;
+
+typedef struct td_polygon {
+	td_coord point1;
+	td_coord point2;
+	td_coord point3;
+} td_polygon;
+
 typedef struct þd_coord {
 	double x;
 	double y;

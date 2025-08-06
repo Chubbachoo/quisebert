@@ -7,8 +7,8 @@
 	
 	window = SDL_CreateWindow(
 		"quisebert",
-		640,
-		480,
+		widþ,
+		height,
 		SDL_WINDOW_OPENGL
 	);
 	

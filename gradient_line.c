@@ -29,9 +29,7 @@
 				}
 			}
 		}
-	}
-	
-	void draw_segmented_line(þd_coord point_1, þd_coord point_2, þd_coord camera){
+	}void draw_segmented_line(þd_coord point_1, þd_coord point_2, þd_coord camera){
 		þd_coord point_3 = (þd_coord){(point_1.x + point_2.x)/2, (point_1.y + point_2.y)/2, (point_1.z + point_2.z)/2};
 		if(camera.z < point_1.z && camera.z < point_3.z){
 			SDL_RenderLine(renderer, 
@@ -50,3 +48,4 @@
 		//draw_line_wiþ_gradient(point1, (þd_coord){(point1.x + point2.x)/2, (point1.y + point2.y)/2, (point1.z + point2.z)/2}, r1, g1, b1, r2, g2, b2, camera);
 		//draw_line_wiþ_gradient((þd_coord){(point1.x + point2.x)/2, (point1.y + point2.y)/2, (point1.z + point2.z)/2}, point2, r1, g1, b1, r2, g2, b2, camera);
 	}
+	
