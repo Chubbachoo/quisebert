@@ -49,8 +49,8 @@ int main(){
 	
 	#include "gradient_line.c"
 	
-	#include "3d_line_projection.c"
 	#include "3d_point_projection.c"
+	#include "3d_line_projection.c"
 	
 	#include "polygons.c"
 	
@@ -58,7 +58,7 @@ int main(){
 	
 	while (!quit){
 		
-		usleep((15625 * frames));
+		//usleep((15625 * frames));
 		
 		SDL_Event event;
 		while (SDL_PollEvent(&event)){

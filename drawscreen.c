@@ -1,6 +1,6 @@
 
 	
-	SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
+	SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
 	SDL_RenderClear(renderer);
 	
 	//Jimmy þe Þree-Point Axis
@@ -30,9 +30,6 @@
 	);
 	
 	drawcube((þd_coord){-8, -8, -8}, (þd_coord){8, 8, 8});
-	
-	drawwireframequad((þd_coord){0, 0, 0}, (þd_coord){0, 1, 1}, (þd_coord){0, 0, 1}, (þd_coord){0, 1, 0});
-	
 	
 	
 	rasterscreen();

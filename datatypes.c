@@ -16,6 +16,12 @@ typedef struct þd_coord {
 	double z;
 } þd_coord;
 
+typedef struct þd_polygon {
+	þd_coord point1;
+	þd_coord point2;
+	þd_coord point3;
+} þd_polygon;
+
 typedef struct þd_angle {
 	double yaw;
 	double pitch;

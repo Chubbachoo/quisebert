@@ -9,7 +9,7 @@
 		"quisebert",
 		widþ,
 		height,
-		SDL_WINDOW_OPENGL
+		0
 	);
 	
 	if (window == NULL) {
