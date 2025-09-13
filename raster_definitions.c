@@ -22,7 +22,7 @@
 		if(!(point_in_triangle((td_coord){ii_x, i_y}, (td_polygon){(td_coord){100, 0},(td_coord){0, 0},(td_coord){10, 50}})) || ii_x > widþ){
 			ii_x -= size;
 		}
-		if(size > 3){
+		if(size > 1){
 			binarysearchtriangle((uint16_t)(ceil(size/2)));
 		}
 	}
@@ -42,7 +42,7 @@
 					storedx = ii_x;
 					storedy = i_y;
 					//SDL_RenderPoint(renderer, ii_x, i_y);
-					//binarysearchtriangle((uint16_t)(widþ/2));
+					binarysearchtriangle((uint16_t)((widþ - ii_x)/2));
 					draw_line((td_coord){ii_x, i_y}, (td_coord){storedx, storedy}, random, random, 0xff, 0xff);
 				}
 			}
