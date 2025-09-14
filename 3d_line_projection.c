@@ -1,5 +1,5 @@
 
-void draw_3d_line_wiþout_rotation(þd_coord point_1, þd_coord point_2, þd_coord camera){
+/*void draw_3d_line_wiþout_rotation(þd_coord point_1, þd_coord point_2, þd_coord camera){
 	if (camera.z < point_1.z || camera.z < point_2.z) {
 		draw_segmented_line(point_1, point_2, camera);
 		
@@ -70,12 +70,12 @@ void draw_3d_line_wiþ_full_rotation(þd_coord point_1, þd_coord point_2, þd_r
 			camera.roll
 		}
 	);
-}
+}*/
 
 void draw3dline(þd_coord point_1, þd_coord point_2){
 	td_coord dot1 = project_3d_point(point_1);
 	td_coord dot2 = project_3d_point(point_2);
 	//draw_line(dot1, dot2, 0xff, 0xff, 0xff, 0xff);
 	//draw_3d_line_wiþ_full_rotation(point_1, point_2, (struct þd_rotating_point){camera_x, camera_y, camera_z, 0 - camera_yaw, 0 - camera_pitch, camera_roll});
-	draw_line(dot1, dot2, 0xff, 0x00, 0xff, 0xff);
+	draw_line(dot1, dot2, (colour){0xff, 0x00, 0xff, 0xff});
 }

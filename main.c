@@ -3,11 +3,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
+#include <sys/time.h>
 
 #include <math.h>
 
 #include <SDL3/SDL.h>
 
+#include "debug.c"
 
 double camera_x = 0;
 double camera_y = 0;
@@ -37,6 +39,8 @@ uint16_t height = 480;
 
 #include "datatypes.c"
 
+#include "mesh.c"
+
 #include "blockgrid.c"
 
 int main(){
@@ -56,9 +60,23 @@ int main(){
 	
 	#include "raster_definitions.c"
 	
+	struct timeval frame_start_time;
+	struct timeval sleep_end_time;
+	struct timeval sleep_end_delta_time;
+	struct timeval logic_end_time;
+	struct timeval logic_end_delta_time;
+	struct timeval screen_draw_end_time;
+	struct timeval screen_draw_end_delta_time;
+	
 	while (!quit){
 		
-		//usleep((15625 * frames));
+		
+		gettimeofday(&frame_start_time, NULL);
+		
+		usleep((15625 * frames));
+		
+		gettimeofday(&sleep_end_time, NULL);
+		timersub(&sleep_end_time, &frame_start_time, &sleep_end_delta_time);
 		
 		SDL_Event event;
 		while (SDL_PollEvent(&event)){
@@ -156,6 +174,10 @@ int main(){
 		if (lowmemory){
 			quit = 1;
 		}
+		
+		gettimeofday(&logic_end_time, NULL);
+		timersub(&logic_end_time, &frame_start_time, &logic_end_delta_time);
+		
 		#include "drawscreen.c"
 	}
 	

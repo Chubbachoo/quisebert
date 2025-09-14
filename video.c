@@ -9,7 +9,7 @@
 		"quisebert",
 		widþ,
 		height,
-		0
+		SDL_WINDOW_VULKAN
 	);
 	
 	if (window == NULL) {

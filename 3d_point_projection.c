@@ -64,8 +64,18 @@ td_coord project_point_wiþ_full_rotation(þd_coord point, þd_rotating_point ca
 td_coord project_3d_point(þd_coord point){
 	return(project_point_wiþ_full_rotation(point, (struct þd_rotating_point){camera_x, camera_y, camera_z, 0 - camera_yaw, 0 - camera_pitch, camera_roll}));
 }
-void draw_line(td_coord point_1, td_coord point_2, uint8_t r, uint8_t g, uint8_t b, uint8_t a){
-	SDL_SetRenderDrawColor(renderer, r, g, b, a);
+td_polygon project_3d_polygon(þd_polygon polygon){
+	if(!(isinf(project_3d_point(polygon.point1).x) || isinf(project_3d_point(polygon.point2).x) || isinf(project_3d_point(polygon.point3).x))){
+		return ((td_polygon){
+			project_3d_point(polygon.point1),
+			project_3d_point(polygon.point2),
+			project_3d_point(polygon.point3)
+		});
+	}
+	return ((td_polygon){(td_coord){NAN, NAN}, (td_coord){NAN, NAN}, (td_coord){NAN, NAN}});
+}
+void draw_line(td_coord point_1, td_coord point_2, colour colour){
+	SDL_SetRenderDrawColor(renderer, colour.r, colour.g, colour.b, colour.a);
 	if(!(isinf(point_1.x) || isinf(point_2.x))){
 		SDL_RenderLine(renderer, point_1.x, point_1.y, point_2.x, point_2.y);
 	}

@@ -1,4 +1,11 @@
 
+typedef struct colour {
+	uint8_t r;
+	uint8_t g;
+	uint8_t b;
+	uint8_t a;
+} colour;
+
 typedef struct td_coord {
 	double x;
 	double y;
