@@ -8,4 +8,5 @@ COMPILING
 ```$ make build```
 
 DISCORD
-as of 14/9 UTC https://discord.gg/kzXuUnJu
+
+- as of 14/9 UTC https://discord.gg/kzXuUnJu
