@@ -14,7 +14,7 @@
 #include "debug.c"
 
 double camera_x = 0;
-double camera_y = 0;
+double camera_y = 128;
 double camera_z = 0;
 
 double camera_yaw = 0;

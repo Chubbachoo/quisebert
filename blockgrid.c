@@ -8,7 +8,10 @@
 						0,
 						(qb_fluid){(qb_identifier){"empty","air"}, 0}
 					};
-					uint8_t terrainheight = (uint8_t)(128 + ((sin(((double)i + xpos * 16)/3) + sin(((double)iii + zpos * 16)/3)) * 3));
+					uint8_t terrainheight = (uint8_t)(128 + 
+						((sin(((double)i + xpos * 16)/3) + sin(((double)iii + zpos * 16)/3)) * 3) +
+						((sin(((double)i + xpos * 16)/8) + sin(((double)iii + zpos * 16)/4)) * 4)
+					);
 					if(ii < terrainheight){
 						chunk -> blocks[i][ii][iii] = (qb_block){
 							(qb_identifier){"loam","dirt"},
