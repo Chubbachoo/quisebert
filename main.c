@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <uchar.h>
+#include <string.h>
 #include <unistd.h>
 #include <time.h>
 #include <sys/time.h>
@@ -67,6 +69,12 @@ int main(){
 	struct timeval logic_end_delta_time;
 	struct timeval screen_draw_end_time;
 	struct timeval screen_draw_end_delta_time;
+	
+	static qb_chunk blockgrid;
+	static qb_chunk carl;
+	
+	worldgen(&blockgrid, 0, 0, 0);
+	worldgen(&carl,  1, 0, 0);
 	
 	while (!quit){
 		

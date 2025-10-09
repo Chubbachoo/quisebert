@@ -29,7 +29,7 @@
 	//Now I am.
 	//Huh.
 	void rasterscreen(){
-		uint8_t random = (uint8_t)(rand());
+		//uint8_t random = (uint8_t)(rand());
 		uint16_t storedx;
 		uint16_t storedy;
 		td_polygon triangle = project_3d_polygon(mesh_data[0]);
@@ -39,7 +39,7 @@
 		float bigx = fmax(fmax(triangle.point1.x, triangle.point2.x), triangle.point3.x);
 		for(i_y = 0; i_y < height; i_y++){
 			for(ii_x = 0; ii_x < widþ; ii_x++){
-				random = (uint8_t)(rand());
+				//random = (uint8_t)(rand());
 				//SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 				if(smallx <= ii_x && ii_x <= bigx && smally <=  i_y && i_y < bigy){
 					if(point_in_triangle((td_coord){ii_x, i_y}, triangle)){
@@ -48,7 +48,7 @@
 						//SDL_RenderPoint(renderer, ii_x, i_y);
 						binarysearchtriangle((uint16_t)((widþ - ii_x)/2), triangle);
 						if(!debug_triangle_check){
-							draw_line((td_coord){ii_x, i_y}, (td_coord){storedx, storedy}, /*mesh_colour[0]*/ (colour){random, random, random, 0xFF});
+							draw_line((td_coord){ii_x, i_y}, (td_coord){storedx, storedy}, mesh_colour[0]/*(colour){random, random, random, 0xFF}*/);
 						}
 					}
 				}
