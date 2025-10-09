@@ -35,12 +35,12 @@
 				if(strncmp(blockgrid.blocks[i][ii][iii].identifier.form, "air", 16)){
 					if((project_3d_point((þd_coord){i, ii, iii}).x > 0 && project_3d_point((þd_coord){i + 1, ii + 1, iii + 1}).x < widþ) && (project_3d_point((þd_coord){i, ii, iii}).y > 0 && project_3d_point((þd_coord){i + 1, ii + 1, iii + 1}).y < height)){
 						if((((i == 0 || i == 15) || (iii == 0 || iii == 15)) || (ii == 0 || ii == 255))){//always draw if on þe edge of þe chunk
-							drawcube((þd_coord){i, ii, iii}, (þd_coord){i+1, ii+1, iii+1}, (colour){i * 16, ii, iii * 16, 0xFF});
+							drawcube((þd_coord){i, ii, iii}, (þd_coord){i+1, ii+1, iii+1}, (colour){0x9F, 0xC0 + (ii * 2), 0xAF, 0xFF});
 						} else {
 							if(!(((strncmp(blockgrid.blocks[i + 1][ii][iii].identifier.form, "air", 16) && strncmp(blockgrid.blocks[i - 1][ii][iii].identifier.form, "air", 16)) &&
 							(strncmp(blockgrid.blocks[i][ii + 1][iii].identifier.form, "air", 16) && strncmp(blockgrid.blocks[i][ii - 1][iii].identifier.form, "air", 16))) &&
 							(strncmp(blockgrid.blocks[i][ii][iii+1].identifier.form, "air", 16) && strncmp(blockgrid.blocks[i][ii][iii - 1].identifier.form, "air", 16)))){
-										drawcube((þd_coord){i, ii, iii}, (þd_coord){i+1, ii+1, iii+1}, (colour){0x9F, ii, 0xAF, 0xFF});
+										drawcube((þd_coord){i, ii, iii}, (þd_coord){i+1, ii+1, iii+1}, (colour){0x9F, 0xC0 + (ii * 2), 0xAF, 0xFF});
 							}
 						}
 					}
@@ -48,12 +48,12 @@
 				if(strncmp(carl.blocks[i][ii][iii].identifier.form, "air", 16)){
 					if((project_3d_point((þd_coord){i + 16, ii, iii}).x > 0 && project_3d_point((þd_coord){i + 17, ii + 1, iii + 1}).x < widþ) && (project_3d_point((þd_coord){i + 16, ii, iii}).y > 0 && project_3d_point((þd_coord){i + 17, ii + 1, iii + 1}).y < height)){
 						if((((i == 0 || i == 15) || (iii == 0 || iii == 15)) || (ii == 0 || ii == 255))){//always draw if on þe edge of þe chunk
-							drawcube((þd_coord){i + 16, ii, iii}, (þd_coord){i+17, ii+1, iii+1}, (colour){i * 16, ii, iii * 16, 0xFF});
+							drawcube((þd_coord){i + 16, ii, iii}, (þd_coord){i+17, ii+1, iii+1}, (colour){0x9F, 0xC0 + (ii * 2), 0xAF, 0xFF});
 						} else {
 							if(!(((strncmp(carl.blocks[i + 1][ii][iii].identifier.form, "air", 16) && strncmp(carl.blocks[i - 1][ii][iii].identifier.form, "air", 16)) &&
 							(strncmp(carl.blocks[i][ii + 1][iii].identifier.form, "air", 16) && strncmp(carl.blocks[i][ii - 1][iii].identifier.form, "air", 16))) &&
 							(strncmp(carl.blocks[i][ii][iii+1].identifier.form, "air", 16) && strncmp(carl.blocks[i][ii][iii - 1].identifier.form, "air", 16)))){
-										drawcube((þd_coord){i + 16, ii, iii}, (þd_coord){i+17, ii+1, iii+1}, (colour){0x9F, ii, 0xAF, 0xFF});
+										drawcube((þd_coord){i + 16, ii, iii}, (þd_coord){i+17, ii+1, iii+1}, (colour){0x9F, 0xC0 + (ii * 2), 0xAF, 0xFF});
 							}
 						}
 					}
