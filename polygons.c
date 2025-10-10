@@ -13,18 +13,27 @@
 		draw3dline(point3, point4, colour);
 	}
 	void drawcube(þd_coord point1, þd_coord point2, colour colour){
-		draw3dline((þd_coord){point1.x, point1.y, point1.z}, (þd_coord){point1.x, point1.y, point2.z}, colour);//bottom face
-		draw3dline((þd_coord){point1.x, point1.y, point2.z}, (þd_coord){point2.x, point1.y, point2.z}, colour);
-		draw3dline((þd_coord){point2.x, point1.y, point2.z}, (þd_coord){point2.x, point1.y, point1.z}, colour);
-		draw3dline((þd_coord){point2.x, point1.y, point1.z}, (þd_coord){point1.x, point1.y, point1.z}, colour);
+		td_coord vert000 = project_3d_point((þd_coord){point1.x, point1.y, point1.z});
+		td_coord vert100 = project_3d_point((þd_coord){point2.x, point1.y, point1.z});
+		td_coord vert010 = project_3d_point((þd_coord){point1.x, point2.y, point1.z});
+		td_coord vert110 = project_3d_point((þd_coord){point2.x, point2.y, point1.z});
+		td_coord vert001 = project_3d_point((þd_coord){point1.x, point1.y, point2.z});
+		td_coord vert101 = project_3d_point((þd_coord){point2.x, point1.y, point2.z});
+		td_coord vert011 = project_3d_point((þd_coord){point1.x, point2.y, point2.z});
+		td_coord vert111 = project_3d_point((þd_coord){point2.x, point2.y, point2.z});
 		
-		draw3dline((þd_coord){point1.x, point2.y, point1.z}, (þd_coord){point1.x, point2.y, point2.z}, colour);//top face
-		draw3dline((þd_coord){point1.x, point2.y, point2.z}, (þd_coord){point2.x, point2.y, point2.z}, colour);
-		draw3dline((þd_coord){point2.x, point2.y, point2.z}, (þd_coord){point2.x, point2.y, point1.z}, colour);
-		draw3dline((þd_coord){point2.x, point2.y, point1.z}, (þd_coord){point1.x, point2.y, point1.z}, colour);
+		draw_line(vert000, vert100, colour);//bottom face
+		draw_line(vert000, vert001, colour);
+		draw_line(vert100, vert101, colour);
+		draw_line(vert001, vert101, colour);
 		
-		draw3dline((þd_coord){point1.x, point1.y, point1.z}, (þd_coord){point1.x, point2.y, point1.z}, colour);//side edges
-		draw3dline((þd_coord){point1.x, point1.y, point2.z}, (þd_coord){point1.x, point2.y, point2.z}, colour);
-		draw3dline((þd_coord){point2.x, point1.y, point1.z}, (þd_coord){point2.x, point2.y, point1.z}, colour);
-		draw3dline((þd_coord){point2.x, point1.y, point2.z}, (þd_coord){point2.x, point2.y, point2.z}, colour);
+		draw_line(vert010, vert110, colour);//top face
+		draw_line(vert010, vert011, colour);
+		draw_line(vert110, vert111, colour);
+		draw_line(vert011, vert111, colour);
+		
+		draw_line(vert000, vert010, colour);//sides
+		draw_line(vert100, vert110, colour);
+		draw_line(vert001, vert011, colour);
+		draw_line(vert101, vert111, colour);
 	}
