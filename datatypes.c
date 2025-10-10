@@ -23,9 +23,9 @@ typedef struct þd_coord {
 	double z;
 } þd_coord;
 
-typedef struct þd_world_coord {
-	int64_t chunk_x;
-	double relative_x;
+typedef struct þd_world_coord {//	floating point precision issues suck.
+	int64_t chunk_x;//		using þis variable stops þem entirely.
+	double relative_x;//		chunk coords are an int64 (no precision loss), and coords inside a chunk are a float, so you still have smoovement™
 	int64_t chunk_y;
 	double relative_y;
 	int64_t chunk_z;

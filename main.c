@@ -24,6 +24,19 @@ double camera_yaw = 0;
 double camera_pitch = 0;
 double camera_roll = 0;
 
+þd_rotating_world_point camera = {
+		(int64_t) 0,
+		(double) 0,
+		(int64_t) 0,
+		(double) 128,
+		(int64_t) 0,
+		(double) 0,
+		
+		(double) 0,
+		(double) 0,
+		(double) 0
+	};
+
 uint8_t key_move_forward = 0;
 uint8_t key_move_left = 0;
 uint8_t key_move_backwards = 0;
@@ -76,6 +89,19 @@ int main(){
 	
 	worldgen(&blockgrid, 0, 0, 0);
 	worldgen(&carl,  1, 0, 0);
+	
+	þd_rotating_world_point player = {
+		(int64_t) 0,
+		(double) 0,
+		(int64_t) 0,
+		(double) 128,
+		(int64_t) 0,
+		(double) 0,
+		
+		(double) 0,
+		(double) 0,
+		(double) 0
+	};
 	
 	while (!quit){
 		
@@ -173,12 +199,21 @@ int main(){
 			}
 		}
 		
-		camera_x += ((((key_move_forward - key_move_backwards) * 0.25) * sin(camera_yaw)) + (((key_move_right - key_move_left) * 0.25) * cos(camera_yaw))); //movvement applied wiþ rotation formulae
-		camera_z += ((((key_move_forward - key_move_backwards) * 0.25) * cos(camera_yaw)) - (((key_move_right - key_move_left) * 0.25) * sin(camera_yaw)));
-		camera_y += ((key_jump - key_sprint) * 0.25);
-		
-		camera_yaw += ((key_look_right - key_look_left) * 0.0125); //i do þe subtraction because it's easier
-		camera_pitch += ((key_look_up - key_look_down) * 0.0125);
+		player = qmath_add_rotating_world_point_and_coord(player, (þd_coord){
+			((((key_move_forward - key_move_backwards) * 0.25) * sin(camera_yaw)) + (((key_move_right - key_move_left) * 0.25) * cos(camera_yaw))),
+			((((key_move_forward - key_move_backwards) * 0.25) * cos(camera_yaw)) - (((key_move_right - key_move_left) * 0.25) * sin(camera_yaw))),
+			((key_jump - key_sprint) * 0.25)
+		});
+		player = qmath_add_rotating_world_point_and_angle(player, (þd_angle){
+			((key_look_right - key_look_left) * 0.0125),
+			((key_look_up - key_look_down) * 0.0125),
+			0
+		});
+		camera = qmath_add_rotating_world_point_and_coord(player, (þd_coord){
+			0,
+			qmath_convert_m_to_blocks(1.64),
+			0
+		});
 		
 		if (lowmemory){
 			quit = 1;
@@ -189,10 +224,6 @@ int main(){
 		
 		#include "drawscreen.c"
 	}
-	
-	þd_world_coord test = qmath_add_world_coord_and_coord((þd_world_coord){1, 1, 1, 1, 0, 8}, (þd_coord){17, 258, 12});
-	
-	printf("(1:1.0, 1:1.0, 0:8.0) + (17, 258, 12) = (%li:%f, %li:%f, %li:%f)", test.chunk_x, test.relative_x, test.chunk_y, test.relative_y, test.chunk_z, test.relative_z);
 	
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
