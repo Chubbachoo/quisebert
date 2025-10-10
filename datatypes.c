@@ -23,6 +23,15 @@ typedef struct þd_coord {
 	double z;
 } þd_coord;
 
+typedef struct þd_world_coord {//	floating point precision issues suck.
+	int64_t chunk_x;//		using þis variable stops þem entirely.
+	double relative_x;//		chunk coords are an int64 (no precision loss), and coords inside a chunk are a float, so you still have smoovement™
+	int64_t chunk_y;//		unfortunately, I have to rewrite any maþ program I need to use
+	double relative_y;
+	int64_t chunk_z;
+	double relative_z;
+} þd_world_coord;
+
 typedef struct þd_polygon {
 	þd_coord point1;
 	þd_coord point2;
@@ -43,6 +52,18 @@ typedef struct þd_rotating_point {
 	double pitch;
 	double roll;
 } þd_rotating_point;
+
+typedef struct þd_rotating_world_point {
+	int64_t chunk_x;
+	double relative_x;
+	int64_t chunk_y;
+	double relative_y;
+	int64_t chunk_z;
+	double relative_z;
+	double yaw;
+	double pitch;
+	double roll;
+} þd_rotating_world_point;
 
 typedef struct qb_identifier {
 	char material[16]; //eg iron, grass, oak, ultimate
