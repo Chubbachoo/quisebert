@@ -9,4 +9,4 @@ COMPILING
 
 DISCORD
 
-- as of 14/9 UTC https://discord.gg/kzXuUnJu
+- Can't be boþered to update invite, will update when boosted
