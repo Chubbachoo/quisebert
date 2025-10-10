@@ -13,6 +13,9 @@
 
 #include "debug.c"
 
+#include "datatypes.c"
+#include "qmathlib.c"
+
 double camera_x = 0;
 double camera_y = 128;
 double camera_z = 0;
@@ -38,8 +41,6 @@ uint8_t frames = 1;
 
 uint16_t widþ = 640;
 uint16_t height = 480;
-
-#include "datatypes.c"
 
 #include "mesh.c"
 
@@ -188,6 +189,10 @@ int main(){
 		
 		#include "drawscreen.c"
 	}
+	
+	þd_world_coord test = qmath_add_world_coord_and_coord((þd_world_coord){1, 1, 1, 1, 0, 8}, (þd_coord){17, 258, 12});
+	
+	printf("(1:1.0, 1:1.0, 0:8.0) + (17, 258, 12) = (%li:%f, %li:%f, %li:%f)", test.chunk_x, test.relative_x, test.chunk_y, test.relative_y, test.chunk_z, test.relative_z);
 	
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
